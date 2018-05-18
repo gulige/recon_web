@@ -36,6 +36,7 @@ var cache_hit = {};
 
 // replace the url for  yourself
 var HostPort = 'http://127.0.0.1:8080';
+HostPort = window.location.href;
 var socket =  io.connect(HostPort);
 socket.on('connect', function() {
     output('<span class="connect-msg">Client has connected to the server!</span>','');
