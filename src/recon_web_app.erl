@@ -12,14 +12,10 @@
 start(_Type, _Args) ->
   Dispatch = cowboy_router:compile([
     {'_', [
-      %{"/", cowboy_static, {priv_file, recon_web, "index.html", [{mimetypes, cow_mimetypes, all}]}},
-      %{"/static/[...]", cowboy_static, {priv_dir, recon_web, "static/"}},
-      %{"/vendor/[...]", cowboy_static, {priv_dir, recon_web, "vendor/"}},
-      %{"/js/[...]", cowboy_static, {priv_dir, recon_web, "js/"}},
-      {"/", cowboy_static, {file, "../src/deps/recon_web/priv/index.html", [{mimetypes, cow_mimetypes, all}]}},
-      {"/static/[...]", cowboy_static, {dir, "../src/deps/recon_web/priv/static/"}},
-      {"/vendor/[...]", cowboy_static, {dir, "../src/deps/recon_web/priv/vendor/"}},
-      {"/js/[...]", cowboy_static, {dir, "../src/deps/recon_web/priv/js/"}},
+      {"/", cowboy_static, {priv_file, recon_web, "index.html", [{mimetypes, cow_mimetypes, all}]}},
+      {"/static/[...]", cowboy_static, {priv_dir, recon_web, "static/"}},
+      {"/vendor/[...]", cowboy_static, {priv_dir, recon_web, "vendor/"}},
+      {"/js/[...]", cowboy_static, {priv_dir, recon_web, "js/"}},
       {"/socket.io/1/[...]", recon_web_handle, [
         recon_web_session:configure([{heartbeat, 6000},
           {heartbeat_timeout, 30000},
